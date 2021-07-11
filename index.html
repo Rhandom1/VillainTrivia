@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/style.css">
+
+    <title>Bad Guy Trivia</title>
+</head>
+<body>
+    <header>
+        <!-- Can this become a progress bar? -->
+        <h1 id="header-intro">Movie Villain Trivia</h1>
+    </header>
+    <!-- Where to put the game clock? -->
+    <div class="game-clock">
+        <p><strong>Time Remaining:</strong><span id="clock-box"></span></p>
+    </div>
+    <br>
+    <div class="game-area">
+        <div id="start-screen">
+            <!-- This should vanish on game start -->
+            <p>Think you know your bad guys? Click start and find out!</p>
+            <button  id="start-btn">Click here to begin!</button>
+        </div>
+            <!-- This screen will appear on game start -->
+        <div class="trivia-area hidden">
+            <!-- Questions and answer choices go here -->
+        </div>
+        <div id="end-game" class="hidden">
+            <h1>GAME OVER</h1>
+            <p>Please enter your intials</p>
+            <input id="initials" />
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+    <br>
+
+    
+    
+    <script src="Assets/questions.js"></script>
+    <script src="Assets/script.js"></script>
+    
+</body>
+</html>
