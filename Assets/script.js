@@ -95,6 +95,8 @@ function endGame() {
     gameOver.removeAttribute('class', 'hidden');
 }
 
+var highScoreArray = JSON.parse(localStorage.getItem('highscore')) || []
+
 function highScore() {
     var initialsEl = document.getElementById('initials').value;
     //grab the id and put a .value on it
@@ -103,7 +105,7 @@ function highScore() {
         score:timeLeft,
     }
     //Either grabs something from localStorage or store something into localStorage
-    var highScoreArray = JSON.parse(localStorage.getItem('highscore')) || []
+    
     //adds an item to the beginning of an array
     highScoreArray.push(newScore);
     renderScores(highScoreArray);
@@ -113,23 +115,25 @@ function highScore() {
 
 //loop through array and display the highscores
 function renderScores(scoresArray) {
-    var scoreEl = document.createElement("ul");
-    document.querySelector('.game-area').innerHTML = scoresArray
+    var scoreEl = document.createElement("ol");
+    var scoreListEl = document.createElement('li')
+    for (let i = 0; i < scoresArray.length; i++) {
+        const score = scoresArray[i].intials + '- ' + scoresArray[i].score;
+        
+        document.getElementById('li').innerText = score;
+        
+    }
+    document.querySelector('.game-area').innerHTML = scoreEl;
 
-    scoreEl.setAttribute('class', 'score-el');
-    gameOver.setAttribute('class', 'hidden');
 
+    localStorage.getItem('highscore');
 }
 
-//ToDo: In renderScores
-//iterate through each score in array
-//template scores value into a string (createElement)
-    //UL for scores
+//ToDo: In renderScores for loop
+//create li elements
+//set innertext to score var
+//make them a child of the ul
 
 
 startButton.addEventListener('click', gameStart);
 submitInitials.addEventListener('click', highScore);
-
-
-//See localStorage 4.3 for saving the score
-//User can enter their intials based on time left
