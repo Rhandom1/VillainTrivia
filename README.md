@@ -20,3 +20,8 @@ THEN I can save my initials and my score
 
 ## Screnshot and links
 
+Live site: https://rhandom1.github.io/VillainTrivia/
+
+To see the complete code setup: https://github.com/Rhandom1/VillainTrivia
+
+![Live Code](./Images/Proj4Live.png)
