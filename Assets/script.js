@@ -137,9 +137,6 @@ function renderScores(scoresArray) {
     localStorage.getItem('highscore');
 }
 
-//ToDo: Build a new array of highest scores?
-//
-
 
 startButton.addEventListener('click', gameStart);
 submitInitials.addEventListener('click', highScore);
