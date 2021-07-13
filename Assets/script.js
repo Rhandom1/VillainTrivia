@@ -95,6 +95,7 @@ function endGame() {
     gameOver.removeAttribute('class', 'hidden');
 }
 
+ //Either grabs something from localStorage or store something into localStorage
 var highScoreArray = JSON.parse(localStorage.getItem('highscore')) || []
 
 function highScore() {
@@ -104,10 +105,15 @@ function highScore() {
         intials:initialsEl,
         score:timeLeft,
     }
-    //Either grabs something from localStorage or store something into localStorage
+   
     
     //adds an item to the beginning of an array
     highScoreArray.push(newScore);
+
+    //TODO: write sort and ranking helper fct 
+    //var top5ScoresArr = rankScores(highScoresArray)
+    //renderScores(topScoresArr);
+
     renderScores(highScoreArray);
     //stores the array locally
     localStorage.setItem('highscore', JSON.stringify(highScoreArray))
@@ -116,23 +122,23 @@ function highScore() {
 //loop through array and display the highscores
 function renderScores(scoresArray) {
     var scoreEl = document.createElement("ol");
-    var scoreListEl = document.createElement('li')
+    
     for (let i = 0; i < scoresArray.length; i++) {
         const score = scoresArray[i].intials + '- ' + scoresArray[i].score;
-        
-        document.getElementById('li').innerText = score;
-        
+        //create li elements
+        var scoreListEl = document.createElement('li');
+        //set innerText to the const score in the loop
+        scoreListEl.innerText = score;
+        //append the li to the list
+        scoreEl.appendChild(scoreListEl);   
     }
-    document.querySelector('.game-area').innerHTML = scoreEl;
-
-
+    document.querySelector('.game-area').innerHTML = "";
+    document.querySelector('.game-area').appendChild(scoreEl);
     localStorage.getItem('highscore');
 }
 
-//ToDo: In renderScores for loop
-//create li elements
-//set innertext to score var
-//make them a child of the ul
+//ToDo: Build a new array of highest scores?
+//
 
 
 startButton.addEventListener('click', gameStart);
